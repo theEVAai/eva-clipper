@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T17:57:15.648Z",
+  "title": "Design System: EVA Clipper 3.1",
+  "extensions": {
+    "colorMeta": {
+      "action": {
+        "role": "primary",
+        "displayName": "EVA Cobalt",
+        "tonalRamp": [
+          "oklch(15.000% 0.22164 265.754)",
+          "oklch(26.429% 0.22164 265.754)",
+          "oklch(37.857% 0.22164 265.754)",
+          "oklch(49.286% 0.22164 265.754)",
+          "oklch(60.714% 0.22164 265.754)",
+          "oklch(72.143% 0.22164 265.754)",
+          "oklch(83.571% 0.22164 265.754)",
+          "oklch(95.000% 0.22164 265.754)"
+        ]
+      },
+      "action-hover": {
+        "role": "primary",
+        "displayName": "Bright Cobalt",
+        "tonalRamp": [
+          "oklch(15.000% 0.23326 265.488)",
+          "oklch(26.429% 0.23326 265.488)",
+          "oklch(37.857% 0.23326 265.488)",
+          "oklch(49.286% 0.23326 265.488)",
+          "oklch(60.714% 0.23326 265.488)",
+          "oklch(72.143% 0.23326 265.488)",
+          "oklch(83.571% 0.23326 265.488)",
+          "oklch(95.000% 0.23326 265.488)"
+        ]
+      },
+      "action-pressed": {
+        "role": "primary",
+        "displayName": "Pressed Cobalt",
+        "tonalRamp": [
+          "oklch(15.000% 0.17605 266.283)",
+          "oklch(26.429% 0.17605 266.283)",
+          "oklch(37.857% 0.17605 266.283)",
+          "oklch(49.286% 0.17605 266.283)",
+          "oklch(60.714% 0.17605 266.283)",
+          "oklch(72.143% 0.17605 266.283)",
+          "oklch(83.571% 0.17605 266.283)",
+          "oklch(95.000% 0.17605 266.283)"
+        ]
+      },
+      "action-text": {
+        "role": "neutral",
+        "displayName": "Action White",
+        "tonalRamp": [
+          "oklch(15.000% 0.00000 0.000)",
+          "oklch(26.429% 0.00000 0.000)",
+          "oklch(37.857% 0.00000 0.000)",
+          "oklch(49.286% 0.00000 0.000)",
+          "oklch(60.714% 0.00000 0.000)",
+          "oklch(72.143% 0.00000 0.000)",
+          "oklch(83.571% 0.00000 0.000)",
+          "oklch(95.000% 0.00000 0.000)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "EVA Ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.00000 0.000)",
+          "oklch(26.429% 0.00000 0.000)",
+          "oklch(37.857% 0.00000 0.000)",
+          "oklch(49.286% 0.00000 0.000)",
+          "oklch(60.714% 0.00000 0.000)",
+          "oklch(72.143% 0.00000 0.000)",
+          "oklch(83.571% 0.00000 0.000)",
+          "oklch(95.000% 0.00000 0.000)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Control Charcoal",
+        "tonalRamp": [
+          "oklch(15.000% 0.00188 106.541)",
+          "oklch(26.429% 0.00188 106.541)",
+          "oklch(37.857% 0.00188 106.541)",
+          "oklch(49.286% 0.00188 106.541)",
+          "oklch(60.714% 0.00188 106.541)",
+          "oklch(72.143% 0.00188 106.541)",
+          "oklch(83.571% 0.00188 106.541)",
+          "oklch(95.000% 0.00188 106.541)"
+        ]
+      },
+      "surface-hover": {
+        "role": "neutral",
+        "displayName": "Hover Charcoal",
+        "tonalRamp": [
+          "oklch(15.000% 0.00355 106.614)",
+          "oklch(26.429% 0.00355 106.614)",
+          "oklch(37.857% 0.00355 106.614)",
+          "oklch(49.286% 0.00355 106.614)",
+          "oklch(60.714% 0.00355 106.614)",
+          "oklch(72.143% 0.00355 106.614)",
+          "oklch(83.571% 0.00355 106.614)",
+          "oklch(95.000% 0.00355 106.614)"
+        ]
+      },
+      "surface-pressed": {
+        "role": "neutral",
+        "displayName": "Pressed Charcoal",
+        "tonalRamp": [
+          "oklch(15.000% 0.00679 106.744)",
+          "oklch(26.429% 0.00679 106.744)",
+          "oklch(37.857% 0.00679 106.744)",
+          "oklch(49.286% 0.00679 106.744)",
+          "oklch(60.714% 0.00679 106.744)",
+          "oklch(72.143% 0.00679 106.744)",
+          "oklch(83.571% 0.00679 106.744)",
+          "oklch(95.000% 0.00679 106.744)"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "EVA Cream",
+        "tonalRamp": [
+          "oklch(15.000% 0.03093 83.626)",
+          "oklch(26.429% 0.03093 83.626)",
+          "oklch(37.857% 0.03093 83.626)",
+          "oklch(49.286% 0.03093 83.626)",
+          "oklch(60.714% 0.03093 83.626)",
+          "oklch(72.143% 0.03093 83.626)",
+          "oklch(83.571% 0.03093 83.626)",
+          "oklch(95.000% 0.03093 83.626)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Warm Gray",
+        "tonalRamp": [
+          "oklch(15.000% 0.01462 93.038)",
+          "oklch(26.429% 0.01462 93.038)",
+          "oklch(37.857% 0.01462 93.038)",
+          "oklch(49.286% 0.01462 93.038)",
+          "oklch(60.714% 0.01462 93.038)",
+          "oklch(72.143% 0.01462 93.038)",
+          "oklch(83.571% 0.01462 93.038)",
+          "oklch(95.000% 0.01462 93.038)"
+        ]
+      },
+      "masthead-hover": {
+        "role": "neutral",
+        "displayName": "Masthead Shade",
+        "tonalRamp": [
+          "oklch(15.000% 0.03426 83.695)",
+          "oklch(26.429% 0.03426 83.695)",
+          "oklch(37.857% 0.03426 83.695)",
+          "oklch(49.286% 0.03426 83.695)",
+          "oklch(60.714% 0.03426 83.695)",
+          "oklch(72.143% 0.03426 83.695)",
+          "oklch(83.571% 0.03426 83.695)",
+          "oklch(95.000% 0.03426 83.695)"
+        ]
+      },
+      "toggle-off": {
+        "role": "neutral",
+        "displayName": "Switch Charcoal",
+        "tonalRamp": [
+          "oklch(15.000% 0.00838 97.537)",
+          "oklch(26.429% 0.00838 97.537)",
+          "oklch(37.857% 0.00838 97.537)",
+          "oklch(49.286% 0.00838 97.537)",
+          "oklch(60.714% 0.00838 97.537)",
+          "oklch(72.143% 0.00838 97.537)",
+          "oklch(83.571% 0.00838 97.537)",
+          "oklch(95.000% 0.00838 97.537)"
+        ]
+      },
+      "disabled-surface": {
+        "role": "neutral",
+        "displayName": "Disabled Charcoal",
+        "tonalRamp": [
+          "oklch(15.000% 0.00000 0.000)",
+          "oklch(26.429% 0.00000 0.000)",
+          "oklch(37.857% 0.00000 0.000)",
+          "oklch(49.286% 0.00000 0.000)",
+          "oklch(60.714% 0.00000 0.000)",
+          "oklch(72.143% 0.00000 0.000)",
+          "oklch(83.571% 0.00000 0.000)",
+          "oklch(95.000% 0.00000 0.000)"
+        ]
+      },
+      "disabled-text": {
+        "role": "neutral",
+        "displayName": "Disabled Gray",
+        "tonalRamp": [
+          "oklch(15.000% 0.00000 0.000)",
+          "oklch(26.429% 0.00000 0.000)",
+          "oklch(37.857% 0.00000 0.000)",
+          "oklch(49.286% 0.00000 0.000)",
+          "oklch(60.714% 0.00000 0.000)",
+          "oklch(72.143% 0.00000 0.000)",
+          "oklch(83.571% 0.00000 0.000)",
+          "oklch(95.000% 0.00000 0.000)"
+        ]
+      },
+      "recording": {
+        "role": "status",
+        "displayName": "Recording Red",
+        "tonalRamp": [
+          "oklch(15.000% 0.17317 24.075)",
+          "oklch(26.429% 0.17317 24.075)",
+          "oklch(37.857% 0.17317 24.075)",
+          "oklch(49.286% 0.17317 24.075)",
+          "oklch(60.714% 0.17317 24.075)",
+          "oklch(72.143% 0.17317 24.075)",
+          "oklch(83.571% 0.17317 24.075)",
+          "oklch(95.000% 0.17317 24.075)"
+        ]
+      },
+      "recording-hover": {
+        "role": "status",
+        "displayName": "Recording Hover",
+        "tonalRamp": [
+          "oklch(15.000% 0.16999 25.245)",
+          "oklch(26.429% 0.16999 25.245)",
+          "oklch(37.857% 0.16999 25.245)",
+          "oklch(49.286% 0.16999 25.245)",
+          "oklch(60.714% 0.16999 25.245)",
+          "oklch(72.143% 0.16999 25.245)",
+          "oklch(83.571% 0.16999 25.245)",
+          "oklch(95.000% 0.16999 25.245)"
+        ]
+      },
+      "warning": {
+        "role": "status",
+        "displayName": "Warning Peach",
+        "tonalRamp": [
+          "oklch(15.000% 0.10207 40.078)",
+          "oklch(26.429% 0.10207 40.078)",
+          "oklch(37.857% 0.10207 40.078)",
+          "oklch(49.286% 0.10207 40.078)",
+          "oklch(60.714% 0.10207 40.078)",
+          "oklch(72.143% 0.10207 40.078)",
+          "oklch(83.571% 0.10207 40.078)",
+          "oklch(95.000% 0.10207 40.078)"
+        ]
+      },
+      "heart-fill": {
+        "role": "identity",
+        "displayName": "Pale Cream",
+        "tonalRamp": [
+          "oklch(15.000% 0.01320 82.402)",
+          "oklch(26.429% 0.01320 82.402)",
+          "oklch(37.857% 0.01320 82.402)",
+          "oklch(49.286% 0.01320 82.402)",
+          "oklch(60.714% 0.01320 82.402)",
+          "oklch(72.143% 0.01320 82.402)",
+          "oklch(83.571% 0.01320 82.402)",
+          "oklch(95.000% 0.01320 82.402)"
+        ]
+      },
+      "heart-hatch": {
+        "role": "identity",
+        "displayName": "Gray Hatching",
+        "tonalRamp": [
+          "oklch(15.000% 0.00000 0.000)",
+          "oklch(26.429% 0.00000 0.000)",
+          "oklch(37.857% 0.00000 0.000)",
+          "oklch(49.286% 0.00000 0.000)",
+          "oklch(60.714% 0.00000 0.000)",
+          "oklch(72.143% 0.00000 0.000)",
+          "oklch(83.571% 0.00000 0.000)",
+          "oklch(95.000% 0.00000 0.000)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "brand": {
+        "displayName": "EVA wordmark",
+        "purpose": "Embedded Bebas Neue, native size 22pt."
+      },
+      "title": {
+        "displayName": "Page title",
+        "purpose": "Segoe UI Bold, native size 13pt."
+      },
+      "section": {
+        "displayName": "Home section",
+        "purpose": "Segoe UI Bold, native size 12pt."
+      },
+      "subsection": {
+        "displayName": "Subsection",
+        "purpose": "Segoe UI Bold, native size 11pt."
+      },
+      "label": {
+        "displayName": "Field label",
+        "purpose": "Segoe UI Bold, native size 10pt; also the Save label."
+      },
+      "body": {
+        "displayName": "Body and value",
+        "purpose": "Segoe UI Regular, native size 10pt."
+      },
+      "caption": {
+        "displayName": "Help and metadata",
+        "purpose": "Segoe UI Regular, native size 9pt."
+      },
+      "micro": {
+        "displayName": "Resource metadata",
+        "purpose": "Segoe UI Regular, native size 8.5pt."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "panel-reveal-duration",
+        "value": "170ms",
+        "purpose": "Fixed-position region reveal; a reversal restarts from the current visible fraction."
+      },
+      {
+        "name": "panel-reveal-easing",
+        "value": "1 - (1 - t)^3",
+        "purpose": "Native elapsed-time cubic ease-out, with t clamped to 0..1."
+      },
+      {
+        "name": "panel-timer",
+        "value": "15ms",
+        "purpose": "Requested WinForms timer interval, not a guaranteed frame cadence."
+      },
+      {
+        "name": "motion-disabled",
+        "value": "0ms",
+        "purpose": "Immediate show/hide when panel animation is disabled."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Appearance translation of the native button; the application owns its state.",
+      "html": "<button class=\"ds-primary\">Применить настройки</button>",
+      "css": ".ds-primary{width:384px;max-width:100%;height:42px;border:0;border-radius:0;background:#1a3dcc;color:#ffffff;font:400 13.3333px \"Segoe UI\",sans-serif;cursor:pointer}.ds-primary:hover{background:#2450e8}.ds-primary:active{background:#0f2490}.ds-primary:focus-visible{outline:1px dotted #ffffff;outline-offset:-4px}.ds-primary:disabled{background:#272727;color:#919191;cursor:default}"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Appearance translation of the native button; the application owns its state.",
+      "html": "<button class=\"ds-secondary\">Включить повтор · Alt+Shift+F10</button>",
+      "css": ".ds-secondary{width:384px;max-width:100%;height:38px;border:0;border-radius:0;background:#1f1f1e;color:#d8cdb8;font:400 13.3333px \"Segoe UI\",sans-serif;cursor:pointer}.ds-secondary:hover{background:#2d2d2b}.ds-secondary:active{background:#3b3b37}.ds-secondary:focus-visible{outline:1px dotted #d8cdb8;outline-offset:-4px}.ds-secondary:disabled{background:#272727;color:#919191;cursor:default}"
+    },
+    {
+      "name": "Confirmed recording action",
+      "kind": "button",
+      "refersTo": "button-recording",
+      "description": "Appearance translation of the native button; the application owns its state.",
+      "html": "<button class=\"ds-recording\">Остановить запись · 00:12</button>",
+      "css": ".ds-recording{width:384px;max-width:100%;height:46px;border:0;border-radius:0;background:#d14848;color:#ffffff;font:400 13.3333px \"Segoe UI\",sans-serif;cursor:pointer}.ds-recording:hover{background:#b83333}.ds-recording:active{background:#3b3b37}.ds-recording:focus-visible{outline:1px dotted #ffffff;outline-offset:-4px}.ds-recording:disabled{background:#272727;color:#919191;cursor:default}"
+    },
+    {
+      "name": "Navigation row",
+      "kind": "button",
+      "refersTo": "navigation-row",
+      "description": "Left-aligned navigation text with the drawn chevron.",
+      "html": "<button class=\"ds-nav-row\"><span>Видео и звук</span><svg class=\"ds-nav-chevron\" width=\"18\" height=\"18\" viewBox=\"0 0 18 18\" aria-hidden=\"true\"><path d=\"M7 4L12 9L7 14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg></button>",
+      "css": ".ds-nav-row{width:186px;height:40px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;border:0;border-radius:0;background:#1f1f1e;color:#d8cdb8;font:400 13.3333px \"Segoe UI\",sans-serif;cursor:pointer}.ds-nav-row:hover{background:#2d2d2b}.ds-nav-row:active{background:#3b3b37}.ds-nav-row:focus-visible{outline:1px dotted #d8cdb8;outline-offset:-4px}.ds-nav-chevron{flex:none}"
+    },
+    {
+      "name": "Folder text field",
+      "kind": "input",
+      "refersTo": "text-field",
+      "description": "Borderless folder field. Sample content is illustrative.",
+      "html": "<label class=\"ds-field-label\">Папка сохранения<input class=\"ds-field\" type=\"text\" value=\"Записи\\EVA Clipper\" aria-label=\"Папка сохранения\"></label>",
+      "css": ".ds-field-label{display:grid;gap:8px;width:288px;max-width:100%;color:#d8cdb8;font:700 13.3333px \"Segoe UI\",sans-serif}.ds-field{width:100%;padding:0;border:0;border-radius:0;background:#1f1f1e;color:#d8cdb8;font:400 13.3333px \"Segoe UI\",sans-serif}.ds-field:hover{background:#1f1f1e}.ds-field:focus-visible{outline:1px dotted #d8cdb8;outline-offset:2px}"
+    },
+    {
+      "name": "Fixed settings tabs",
+      "kind": "nav",
+      "refersTo": "settings-tab",
+      "description": "The five tabs retain their order and stay outside the scrolling body.",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"Настройки\"><button class=\"ds-tab ds-tab-sources\">Источники</button><button class=\"ds-tab\" aria-current=\"page\">Видео</button><button class=\"ds-tab\">Аудио</button><button class=\"ds-tab\">Файлы</button><button class=\"ds-tab ds-tab-keys\">Клавиши</button></nav>",
+      "css": ".ds-tabs{display:flex;gap:2px;width:404px;padding:12px 0;background:#0d0d0d}.ds-tab{flex:0 0 72px;height:32px;padding:0;border:0;border-radius:0;background:#0d0d0d;color:#d8cdb8;font:400 12px \"Segoe UI\",sans-serif;cursor:pointer}.ds-tab-sources{flex-basis:96px}.ds-tab-keys{flex-basis:84px}.ds-tab:hover{background:#2d2d2b}.ds-tab:active{background:#3b3b37}.ds-tab[aria-current=\"page\"]{background:#1a3dcc;color:#fff}.ds-tab[aria-current=\"page\"]:hover{background:#2450e8}.ds-tab[aria-current=\"page\"]:active{background:#0f2490}.ds-tab:focus-visible{outline:1px dotted currentColor;outline-offset:-4px}"
+    },
+    {
+      "name": "EvaSelect",
+      "kind": "input",
+      "refersTo": "selector",
+      "description": "Owner-drawn selector appearance. The native control owns popup sizing, keyboard behavior and wheel filtering.",
+      "html": "<label class=\"ds-select-label\">Разрешение<span class=\"ds-select-wrap\"><select class=\"ds-select\" aria-label=\"Разрешение\"><option>1280 × 720</option><option selected>1920 × 1080</option><option>2560 × 1440</option><option>3840 × 2160</option></select><svg class=\"ds-select-chevron\" width=\"12\" height=\"10\" viewBox=\"0 0 12 10\" aria-hidden=\"true\"><path d=\"M2 3L6 7L10 3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></svg></span></label>",
+      "css": ".ds-select-label{display:grid;gap:8px;width:384px;max-width:100%;color:#d8cdb8;font:700 13.3333px \"Segoe UI\",sans-serif}.ds-select-wrap{position:relative;display:block}.ds-select{appearance:none;width:100%;height:29px;padding:0 42px 0 10px;border:0;border-radius:0;background:#1f1f1e;color:#d8cdb8;font:400 13.3333px \"Segoe UI\",sans-serif;cursor:default}.ds-select:hover{background:#1f1f1e}.ds-select:focus-visible{outline:1px dotted #d8cdb8;outline-offset:-4px}.ds-select option{background:#1f1f1e;color:#d8cdb8}.ds-select option:checked{background:#1a3dcc;color:#fff}.ds-select-chevron{position:absolute;right:13px;top:10px;pointer-events:none}"
+    },
+    {
+      "name": "EvaSlider",
+      "kind": "input",
+      "refersTo": "slider",
+      "description": "Slim rail, warm thumb and separate value label. This appearance sample does not reproduce native wheel routing or dynamic value formatting.",
+      "html": "<label class=\"ds-slider-label\"><span class=\"ds-slider-heading\"><strong>Частота кадров</strong><span>60 FPS</span></span><input class=\"ds-slider\" type=\"range\" min=\"0\" max=\"2\" value=\"1\" aria-label=\"Частота кадров\"></label>",
+      "css": ".ds-slider-label{display:grid;width:384px;max-width:100%;background:#0d0d0d;color:#d8cdb8;font:400 13.3333px \"Segoe UI\",sans-serif}.ds-slider-heading{display:flex;justify-content:space-between;min-height:25px}.ds-slider-heading strong{font-weight:700}.ds-slider{appearance:none;width:calc(100% - 16px);height:28px;margin:0 8px;border:0;background:transparent;cursor:pointer}.ds-slider::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(to right,#2450e8 50%,#2d2d2b 50%)}.ds-slider::-webkit-slider-thumb{appearance:none;width:12px;height:12px;margin-top:-4px;border:0;border-radius:6px;background:#d8cdb8}.ds-slider::-moz-range-track{height:4px;border-radius:2px;background:#2d2d2b}.ds-slider::-moz-range-progress{height:4px;border-radius:2px;background:#2450e8}.ds-slider::-moz-range-thumb{width:12px;height:12px;border:0;border-radius:6px;background:#d8cdb8}.ds-slider:hover{background:transparent}.ds-slider:focus-visible{outline:1px dotted #d8cdb8;outline-offset:5px}"
+    },
+    {
+      "name": "EvaToggle",
+      "kind": "input",
+      "refersTo": "toggle",
+      "description": "CheckBox semantics with a pill track, readable label and visible focus.",
+      "html": "<label class=\"ds-toggle\"><input class=\"ds-toggle-input\" type=\"checkbox\" checked><span class=\"ds-toggle-text\">Плавное открытие панели</span><span class=\"ds-toggle-track\" aria-hidden=\"true\"></span></label>",
+      "css": ".ds-toggle{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;width:384px;max-width:100%;height:42px;background:#0d0d0d;color:#d8cdb8;font:400 13.3333px \"Segoe UI\",sans-serif;cursor:pointer}.ds-toggle-input{position:absolute;opacity:0;width:1px;height:1px}.ds-toggle-text{flex:1}.ds-toggle-track{position:relative;flex:none;width:42px;height:22px;margin-right:2px;border-radius:11px;background:#464540}.ds-toggle-track::after{content:\"\";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:8px;background:#d8cdb8}.ds-toggle-input:checked~.ds-toggle-track{background:#1a3dcc}.ds-toggle-input:checked~.ds-toggle-track::after{left:23px;background:#fff}.ds-toggle:hover .ds-toggle-track{filter:none}.ds-toggle-input:focus-visible~.ds-toggle-text::after{content:\"\";position:absolute;inset:1px;outline:1px dotted #d8cdb8;pointer-events:none}.ds-toggle-input:disabled~.ds-toggle-text{color:#a7a49a}"
+    },
+    {
+      "name": "EVA heart",
+      "kind": "custom",
+      "refersTo": "eva-heart",
+      "description": "The native heart path, clipped diagonal hatching and cobalt outline.",
+      "html": "<span class=\"ds-heart\"><svg class=\"ds-heart-mark\" width=\"30\" height=\"30\" viewBox=\"0 0 32 32\" role=\"img\" aria-label=\"EVA\"><defs><clipPath id=\"ds-eva-heart-clip\"><path d=\"M16 27C16 27 3 19 3 11C3 7 6 4 10 4C12.5 4 14.5 5.5 16 7C17.5 5.5 19.5 4 22 4C26 4 29 7 29 11C29 19 16 27 16 27Z\"/></clipPath></defs><path d=\"M16 27C16 27 3 19 3 11C3 7 6 4 10 4C12.5 4 14.5 5.5 16 7C17.5 5.5 19.5 4 22 4C26 4 29 7 29 11C29 19 16 27 16 27Z\" fill=\"#ede8df\"/><g clip-path=\"url(#ds-eva-heart-clip)\" stroke=\"#828282\" stroke-width=\"1.1\"><path d=\"M-10 32L17 0M-4 32L23 0M2 32L29 0M8 32L35 0M14 32L41 0M20 32L47 0M26 32L53 0\"/></g><path d=\"M16 27C16 27 3 19 3 11C3 7 6 4 10 4C12.5 4 14.5 5.5 16 7C17.5 5.5 19.5 4 22 4C26 4 29 7 29 11C29 19 16 27 16 27Z\" fill=\"none\" stroke=\"#1a3dcc\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/></svg></span>",
+      "css": ".ds-heart{display:inline-flex;align-items:center;justify-content:center;padding:12px;background:#d8cdb8}.ds-heart-mark{display:block}"
+    }
+  ],
+  "narrative": {
+    "northStar": "EVA recording console",
+    "overview": "A narrow native utility carries EVA's warm cream identity above an ink workspace. Cobalt gives actions and selection a clear visual weight; compact media and source rows keep recording work legible without decorative card stacks.\n\nThe brand is concentrated in the heart and condensed EVA CLIPPER wordmark. Russian controls use Segoe UI, explicit labels and familiar Windows keyboard behavior. Flat rectangular actions coexist with round slider thumbs and pill switches because those shapes communicate different operations.\n\nThis is the implemented 3.1 system extracted from `src/Panel.cs`, `src/Controls.cs` and `src/Overlay.cs`, with the embedded font confirmed in `scripts/build.ps1`. The palette and display family match the public [EVA site](https://theeva.ai), read on 2026-10-09. Sampled native captures are `.impeccable/review-v31/home.png`, `video-720.png` and `video-bottom-720.png`; the available review set also contains all five settings tabs at 440 × 1000. The harness renders production controls with synthetic engine and device state. It demonstrates interface appearance, not capture compatibility, successful recording or exact synchronization.",
+    "keyCharacteristics": [
+      "Cream masthead, ink canvas, warm text and cobalt actions.",
+      "A fixed-width right-edge panel with persistent settings navigation and Apply footer.",
+      "Embedded Bebas Neue branding with a Segoe UI interface.",
+      "Owner-drawn selectors, slim sliders and switches with visible keyboard focus.",
+      "A reversible reveal at a fixed window position and settings that scroll without wheel edits."
+    ],
+    "rules": [
+      {
+        "name": "The Brand and State Rule",
+        "body": "Cream and the heart identify EVA; cobalt marks primary actions, selection and enabled settings. Recording red identifies the stop action after engine confirmation; warning text identifies current errors or unavailable sources.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Faces Rule",
+        "body": "Use Bebas Neue for the EVA CLIPPER wordmark only. Use Segoe UI for Russian headings, controls, values and help text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Fixed Chrome Rule",
+        "body": "Keep the masthead, five settings tabs and Apply action outside the scrolling body. Short work areas change the visible content height, not the panel width or navigation order.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Separate controls through fill, spacing and typography. The native system has no authored shadow, glass blur or decorative card stack.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Wheel Safety Rule",
+        "body": "The wheel scrolls the settings body without changing a value, even over a selector popup or slider. Changing a parameter requires an explicit click, drag or keyboard action.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do preserve the cream masthead, EVA heart, ink canvas and cobalt action hierarchy.",
+      "Do keep the wordmark in the embedded Bebas Neue face and Russian controls in Segoe UI.",
+      "Do retain the 440px panel and fixed settings tabs, Apply action and status area.",
+      "Do make parameter edits explicit and preserve visible keyboard focus.",
+      "Do show recording, replay, source availability and disabled actions from confirmed engine state.",
+      "Do use real local media in the gallery and keep private captures out of public design assets."
+    ],
+    "donts": [
+      "Don't replace the EVA heart with a text glyph or redraw action icons as font characters.",
+      "Don't apply rectangular control geometry to switch tracks or slider thumbs.",
+      "Don't add ornamental shadows, glass layers or card stacks to this utility.",
+      "Don't turn a wheel gesture into a selector or slider edit.",
+      "Don't imply a successful save while replay is off or before the engine confirms completion.",
+      "Don't treat a UI screenshot as proof of borderless capture compatibility or frame-accurate synchronization."
+    ]
+  }
+}

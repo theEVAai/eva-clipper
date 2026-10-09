@@ -1,0 +1,12 @@
+LIBRARY obs
+EXPORTS
+ bmalloc
+ bfree
+ obs_register_source_s
+ obs_data_get_int
+ obs_data_set_default_int
+ obs_source_showing
+ obs_source_output_video
+ obs_source_set_async_unbuffered
+ obs_source_set_async_decoupled
+ os_gettime_ns
