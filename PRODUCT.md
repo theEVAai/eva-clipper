@@ -21,7 +21,7 @@ Use a 440px native right-side panel in the EVA colors verified at theeva.ai: cre
 
 ## Behavior and limits
 
-Backend confirmation determines recording state. The panel remains visible in desktop captures. Alt+X reveals or hides it; repeated toggles reverse a short animation at a fixed window position. Motion can be disabled.
+Backend confirmation determines recording state. The panel remains visible in desktop captures. Alt+X reveals or hides it at a fixed window position; repeated toggles reverse the reveal while preserving its current position and velocity. One opaque panel image is displayed during motion, then live controls return when opening settles. Motion typically settles in about 200ms, depending on its current state and frame delivery, without an exact duration or FPS guarantee. Disabling motion switches directly between visible and hidden states.
 
 One portable OBS process and the bundled Source Record plugin encode all sources. Each active video needs its own encoded buffer, so replay duration and bitrate still determine memory use. Unavailable sources do not start an encoder until a usable window appears. Gallery work has bounded concurrency and pagination.
 

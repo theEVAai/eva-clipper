@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-09T17:57:15.648Z",
+  "generatedAt": "2026-10-11T18:35:10Z",
   "title": "Design System: EVA Clipper 3.1",
   "extensions": {
     "colorMeta": {
@@ -309,18 +309,23 @@
     "motion": [
       {
         "name": "panel-reveal-duration",
-        "value": "170ms",
-        "purpose": "Fixed-position region reveal; a reversal restarts from the current visible fraction."
+        "value": "about 200ms typical convergence",
+        "purpose": "State-dependent spring settlement, not a fixed duration or FPS guarantee."
       },
       {
         "name": "panel-reveal-easing",
-        "value": "1 - (1 - t)^3",
-        "purpose": "Native elapsed-time cubic ease-out, with t clamped to 0..1."
+        "value": "analytic critically damped spring; Omega = 48 s^-1",
+        "purpose": "Elapsed-time motion; target reversals preserve continuous position and velocity."
       },
       {
-        "name": "panel-timer",
-        "value": "15ms",
-        "purpose": "Requested WinForms timer interval, not a guaranteed frame cadence."
+        "name": "panel-composition-clock",
+        "value": "DwmFlush off the UI thread",
+        "purpose": "Compositor-paced worker posts at most one queued frame callback; no guaranteed frame cadence."
+      },
+      {
+        "name": "panel-reveal-image",
+        "value": "one opaque layered image per transition",
+        "purpose": "Fixed-position right-edge region reveal with live controls hidden; reversals reuse the image and visible live controls return on settlement."
       },
       {
         "name": "motion-disabled",
@@ -399,7 +404,7 @@
       "name": "EvaToggle",
       "kind": "input",
       "refersTo": "toggle",
-      "description": "CheckBox semantics with a pill track, readable label and visible focus.",
+      "description": "CheckBox semantics with a pill track, readable label and visible focus. Native painting owns an opaque ink background and respects control bounds, clipping and translated graphics.",
       "html": "<label class=\"ds-toggle\"><input class=\"ds-toggle-input\" type=\"checkbox\" checked><span class=\"ds-toggle-text\">Плавное открытие панели</span><span class=\"ds-toggle-track\" aria-hidden=\"true\"></span></label>",
       "css": ".ds-toggle{position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;width:384px;max-width:100%;height:42px;background:#0d0d0d;color:#d8cdb8;font:400 13.3333px \"Segoe UI\",sans-serif;cursor:pointer}.ds-toggle-input{position:absolute;opacity:0;width:1px;height:1px}.ds-toggle-text{flex:1}.ds-toggle-track{position:relative;flex:none;width:42px;height:22px;margin-right:2px;border-radius:11px;background:#464540}.ds-toggle-track::after{content:\"\";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:8px;background:#d8cdb8}.ds-toggle-input:checked~.ds-toggle-track{background:#1a3dcc}.ds-toggle-input:checked~.ds-toggle-track::after{left:23px;background:#fff}.ds-toggle:hover .ds-toggle-track{filter:none}.ds-toggle-input:focus-visible~.ds-toggle-text::after{content:\"\";position:absolute;inset:1px;outline:1px dotted #d8cdb8;pointer-events:none}.ds-toggle-input:disabled~.ds-toggle-text{color:#a7a49a}"
     },
@@ -414,7 +419,7 @@
   ],
   "narrative": {
     "northStar": "EVA recording console",
-    "overview": "A narrow native utility carries EVA's warm cream identity above an ink workspace. Cobalt gives actions and selection a clear visual weight; compact media and source rows keep recording work legible without decorative card stacks.\n\nThe brand is concentrated in the heart and condensed EVA CLIPPER wordmark. Russian controls use Segoe UI, explicit labels and familiar Windows keyboard behavior. Flat rectangular actions coexist with round slider thumbs and pill switches because those shapes communicate different operations.\n\nThis is the implemented 3.1 system extracted from `src/Panel.cs`, `src/Controls.cs` and `src/Overlay.cs`, with the embedded font confirmed in `scripts/build.ps1`. The palette and display family match the public [EVA site](https://theeva.ai), read on 2026-10-09. Sampled native captures are `.impeccable/review-v31/home.png`, `video-720.png` and `video-bottom-720.png`; the available review set also contains all five settings tabs at 440 × 1000. The harness renders production controls with synthetic engine and device state. It demonstrates interface appearance, not capture compatibility, successful recording or exact synchronization.",
+    "overview": "A narrow native utility carries EVA's warm cream identity above an ink workspace. Cobalt gives actions and selection a clear visual weight; compact media and source rows keep recording work legible without decorative card stacks.\n\nThe brand is concentrated in the heart and condensed EVA CLIPPER wordmark. Russian controls use Segoe UI, explicit labels and familiar Windows keyboard behavior. Flat rectangular actions coexist with round slider thumbs and pill switches because those shapes communicate different operations.\n\nThis is the implemented 3.1 system extracted from `src/Panel.cs`, `src/Controls.cs` and `src/Overlay.cs`, with the embedded font confirmed in `scripts/build.ps1`. The palette and display family match the public [EVA site](https://theeva.ai), read on 2026-10-09. Sampled native captures are `.impeccable/review-v31/home.png`, `video-720.png` and `video-bottom-720.png`; the available review set also contains all five settings tabs at 440 × 1000. The harness renders production controls with synthetic engine and device state. It demonstrates interface appearance, not capture compatibility, successful recording or exact synchronization.\n\nThe 3.1.1 repaint and motion behavior is implemented in `src/Controls.cs`, `src/Panel.cs` and `src/PanelMotion.cs`. The current production-control fixture matrix is `.impeccable/review-v311/{home.png,Источники.png,Видео.png,Аудио.png,Файлы.png,Клавиши.png,video-720.png,video-bottom-720.png}`, at 440px wide and 1000px or 720px high with synthetic engine and device state. `tests/PanelChecks.cs` covers translated and clipped toggle paint, removal of old labels, continuous reversals, duplicate targets and irregular frame timing. Fixture appearance and callback timings do not establish product FPS or direct live hover behavior; Computer Use hover capture remains pending.",
     "keyCharacteristics": [
       "Cream masthead, ink canvas, warm text and cobalt actions.",
       "A fixed-width right-edge panel with persistent settings navigation and Apply footer.",

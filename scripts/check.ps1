@@ -15,3 +15,8 @@ $wheelExe=Join-Path $build 'WheelChecks.exe'
 if ($LASTEXITCODE -ne 0) { throw 'Wheel check compilation failed' }
 & $wheelExe
 if ($LASTEXITCODE -ne 0) { throw 'Wheel checks failed' }
+$panelExe=Join-Path $build 'PanelChecks.exe'
+& $compilerPath /nologo /target:exe /platform:x64 /optimize+ ('/out:'+$panelExe) /reference:System.Drawing.dll /reference:System.Windows.Forms.dll (Join-Path $repo 'src/Controls.cs') (Join-Path $repo 'src/PanelMotion.cs') (Join-Path $repo 'tests/PanelChecks.cs')
+if ($LASTEXITCODE -ne 0) { throw 'Panel check compilation failed' }
+& $panelExe
+if ($LASTEXITCODE -ne 0) { throw 'Panel checks failed' }

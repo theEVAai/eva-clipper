@@ -16,16 +16,16 @@ public sealed class Overlay:Form {
  readonly Library library=new Library();readonly Engine engine;Config config,draft;
  readonly Dictionary<string,Font> fonts=new Dictionary<string,Font>();
  readonly Dictionary<string,Label> sourceLabels=new Dictionary<string,Label>();
- readonly Timer poll=new Timer{Interval=1500},animation=new Timer{Interval=15};readonly Stopwatch motion=new Stopwatch();
+ readonly Timer poll=new Timer{Interval=1500};readonly CompositionClock animation;readonly Stopwatch motion=new Stopwatch();readonly PanelMotion movement=new PanelMotion();SlidePreview preview;double lastFrame;
  WheelPanel body;Panel header,footer,tabs;SettingsWheelFilter wheelFilter;EvaHeart heart;Label title,status,resources,replayLabel,memory;Button back,gear,record,replay,save,mic,apply;NotifyIcon tray;
- string page="home",section="Источники",keyConflict="";int viewVersion,galleryPage;bool busy,closing,exiting,polling,requestedVisible=true,animating;double reveal=1,startReveal=1;
+ string page="home",section="Источники",keyConflict="";int viewVersion,galleryPage;bool busy,closing,exiting,polling,requestedVisible=true,animating;double reveal=1;
  List<Choice> windows=new List<Choice>(),monitors=new List<Choice>(),outputs=new List<Choice>(),inputs=new List<Choice>(),apps=new List<Choice>();
  List<List<Clip>> gallery=new List<List<Clip>>();
  [DllImport("user32.dll")]static extern bool RegisterHotKey(IntPtr h,int id,uint modifiers,uint key);
  [DllImport("user32.dll")]static extern bool UnregisterHotKey(IntPtr h,int id);
  protected override bool ShowWithoutActivation{get{return Program.Instance!="main";}}
  public Overlay(bool startEngine=true){
-  config=Config.Load();engine=new Engine(AppDomain.CurrentDomain.BaseDirectory,library);
+  config=Config.Load();engine=new Engine(AppDomain.CurrentDomain.BaseDirectory,library);animation=new CompositionClock(this);
   Text="EVA Clipper";BackColor=Bg;ForeColor=Color.White;Font=Face(10);FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=true;TopMost=true;AutoScaleMode=AutoScaleMode.None;KeyPreview=true;DoubleBuffered=true;StartPosition=FormStartPosition.Manual;
   var area=Screen.PrimaryScreen.WorkingArea;Bounds=new Rectangle(area.Right-W,area.Top,W,area.Height);MinimumSize=new Size(W,580);
   header=new BufferedPanel{Dock=DockStyle.Top,Height=64,BackColor=TextColor};Controls.Add(header);
@@ -184,18 +184,24 @@ public sealed class Overlay:Form {
  }
  protected override void WndProc(ref Message m){if(m.Msg==Program.ShowMessage){Slide(true);return;}if(m.Msg==0x312){Hotkey(m.WParam.ToInt32());return;}base.WndProc(ref m);}
  async void Hotkey(int id){if(id==1)Slide(!requestedVisible);else if(id==2)await Record();else if(id==3)await Run(async()=>{await engine.Replay();Status(engine.Replaying?"Повтор включён":"Повтор выключен");});else if(id==4)await Save();else if(id==5)await Shot();else if(id==6)await ToggleMic();}
- // The HWND stays inside the monitor. Revealing a fixed region avoids Windows snapping
- // an off-screen form back into view, and elapsed time makes reversals deterministic.
+ // Snapshot the complete panel once. The compositor reveals that single surface,
+ // while the live child controls stay hidden and cannot smear during the transition.
  public void Slide(bool show){
-  if(closing)return;if(requestedVisible==show&&Visible==show&&!animating)return;requestedVisible=show;
+  if(closing)return;if(requestedVisible==show&&(animating||Visible==show))return;
+  if(animating){AdvanceMovement();requestedVisible=show;movement.Aim(show);return;}
+  requestedVisible=show;
   var area=Screen.PrimaryScreen.WorkingArea;SetBounds(area.Right-W,area.Top,W,area.Height);
-  if(!config.PanelAnimation){animation.Stop();animating=false;Region=null;reveal=show?1:0;if(show){Show();Activate();RefreshState();}else Hide();return;}
-  if(show&&!Visible){reveal=0;SetReveal(0);Show();}startReveal=reveal;motion.Restart();animating=true;animation.Start();if(show)Activate();
+  if(!config.PanelAnimation){FinishSlide();return;}
+  foreach(var box in body.Controls.OfType<EvaSelect>())box.DroppedDown=false;
+  RefreshState();reveal=Visible?1:0;movement.Reset(reveal);movement.Aim(show);
+  try{using(var bitmap=new Bitmap(Width,Height)){DrawToBitmap(bitmap,ClientRectangle);preview=new SlidePreview();preview.Prepare(bitmap,Bounds,reveal);}Hide();lastFrame=0;motion.Restart();animating=true;animation.Start();}
+  catch{FinishSlide();}
  }
- void SetReveal(double progress){int visible=(int)Math.Round(W*Math.Max(0,Math.Min(1,progress)));Region old=Region;Region=new Region(new Rectangle(W-visible,0,visible,Height));if(old!=null)old.Dispose();}
- void AnimateStep(){double time=Math.Min(1,motion.Elapsed.TotalMilliseconds/170.0);double ease=1-Math.Pow(1-time,3);reveal=startReveal+((requestedVisible?1:0)-startReveal)*ease;SetReveal(reveal);if(time<1)return;animation.Stop();animating=false;if(!requestedVisible)Hide();else{var old=Region;Region=null;if(old!=null)old.Dispose();RefreshState();}}
+ void AdvanceMovement(){double now=motion.Elapsed.TotalSeconds;movement.Step(now-lastFrame);lastFrame=now;reveal=movement.Position;}
+ void AnimateStep(){try{AdvanceMovement();if(preview!=null)preview.Reveal(reveal);if(movement.Settled)FinishSlide();}catch{FinishSlide();}}
+ void FinishSlide(){animation.Stop();animating=false;reveal=requestedVisible?1:0;movement.Reset(reveal);if(requestedVisible){Show();if(Program.Instance=="main")Activate();RefreshState();}else Hide();if(preview!=null){preview.Hide();preview.Dispose();preview=null;}}
  static void Open(string path){try{Process.Start(new ProcessStartInfo(path){UseShellExecute=true});}catch{}}
  async Task Exit(){if(closing)return;if(busy){Status("Дождись завершения сохранения.",true);return;}closing=true;poll.Stop();animation.Stop();Status("Завершаем запись…");try{while(polling)await Task.Delay(30);await engine.Shutdown();}catch(Exception ex){MessageBox.Show(ex.Message,"EVA Clipper");}finally{for(int i=1;i<=6;i++)UnregisterHotKey(Handle,i);tray.Visible=false;tray.Dispose();exiting=true;Close();}}
- protected override void Dispose(bool disposing){if(disposing){viewVersion++;poll.Dispose();animation.Dispose();if(wheelFilter!=null)Application.RemoveMessageFilter(wheelFilter);}base.Dispose(disposing);if(disposing)foreach(var font in fonts.Values)font.Dispose();}
+ protected override void Dispose(bool disposing){if(disposing){viewVersion++;poll.Dispose();animation.Dispose();if(preview!=null){preview.Dispose();preview=null;}if(wheelFilter!=null)Application.RemoveMessageFilter(wheelFilter);}base.Dispose(disposing);if(disposing)foreach(var font in fonts.Values)font.Dispose();}
 }
 }

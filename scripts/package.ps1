@@ -18,7 +18,7 @@ if ((Get-FileHash -LiteralPath $pluginPath -Algorithm SHA256).Hash -ne 'C2E461AF
 if ((Get-FileHash -LiteralPath $pluginSourcePath -Algorithm SHA256).Hash -ne 'AD60C3CB88FEC5B726FADE90EEB872B527070822AFFC8D7FDD7CFB831C5A539E') { throw 'Unexpected Source Record source archive hash.' }
 $dist = Join-Path $repo 'dist'
 New-Item -ItemType Directory -Force -Path $dist | Out-Null
-$archivePath = Join-Path $dist 'EVA-Clipper-3.1.0-Windows-x64.zip'
+$archivePath = Join-Path $dist 'EVA-Clipper-3.1.1-Windows-x64.zip'
 if (Test-Path -LiteralPath $archivePath) { throw 'Release ZIP already exists; move it aside before rebuilding.' }
 $stage = Join-Path $dist ('stage-' + [guid]::NewGuid().ToString('N'))
 $package = Join-Path $stage 'EVA Clipper'

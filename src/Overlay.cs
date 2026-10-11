@@ -20,7 +20,7 @@ public enum IconKind {None,Settings,Close,Back,Play,Stop,Camera}
 public class FlatButton:Button {
  public IconKind Icon;public bool RightArrow;
  protected override void OnPaint(PaintEventArgs e){
-  if(Enabled)base.OnPaint(e);else{e.Graphics.Clear(Color.FromArgb(39,39,39));TextRenderer.DrawText(e.Graphics,Text,Font,ClientRectangle,Color.FromArgb(145,145,145),TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.EndEllipsis);}
+  if(Enabled)base.OnPaint(e);else{using(var fill=new SolidBrush(Color.FromArgb(39,39,39)))e.Graphics.FillRectangle(fill,ClientRectangle);TextRenderer.DrawText(e.Graphics,Text,Font,ClientRectangle,Color.FromArgb(145,145,145),TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.EndEllipsis|EvaTheme.TextContext);}
   e.Graphics.SmoothingMode=System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
   var color=Enabled?ForeColor:Color.FromArgb(145,145,145);float x=Width/2f,y=Height/2f;
   using(var pen=new Pen(color,1.8f))using(var brush=new SolidBrush(color)){

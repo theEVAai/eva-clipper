@@ -193,6 +193,8 @@ The brand is concentrated in the heart and condensed EVA CLIPPER wordmark. Russi
 
 This is the implemented 3.1 system extracted from `src/Panel.cs`, `src/Controls.cs` and `src/Overlay.cs`, with the embedded font confirmed in `scripts/build.ps1`. The palette and display family match the public [EVA site](https://theeva.ai), read on 2026-10-09. Sampled native captures are `.impeccable/review-v31/home.png`, `video-720.png` and `video-bottom-720.png`; the available review set also contains all five settings tabs at 440 × 1000. The harness renders production controls with synthetic engine and device state. It demonstrates interface appearance, not capture compatibility, successful recording or exact synchronization.
 
+The 3.1.1 repaint and motion behavior is implemented in `src/Controls.cs`, `src/Panel.cs` and `src/PanelMotion.cs`. The current production-control fixture matrix is `.impeccable/review-v311/{home.png,Источники.png,Видео.png,Аудио.png,Файлы.png,Клавиши.png,video-720.png,video-bottom-720.png}`, at 440px wide and 1000px or 720px high with synthetic engine and device state. `tests/PanelChecks.cs` covers translated and clipped toggle paint, removal of old labels, continuous reversals, duplicate targets and irregular frame timing. Fixture appearance and callback timings do not establish product FPS or direct live hover behavior; Computer Use hover capture remains pending.
+
 **Key Characteristics:**
 
 - Cream masthead, ink canvas, warm text and cobalt actions.
@@ -256,7 +258,9 @@ Native captures at a 720px work-area height show the video settings scrolling wh
 
 **The Fixed Chrome Rule.** Keep the masthead, five settings tabs and Apply action outside the scrolling body. Short work areas change the visible content height, not the panel width or navigation order.
 
-The reveal keeps the HWND at its final on-screen position and exposes a region from the right edge. Each transition runs for 170ms with elapsed-time cubic ease-out, `1 - (1 - t)^3`, on a 15ms timer. A repeated toggle starts from the current visible fraction and reverses the target. Turning off “Плавное открытие панели” switches directly between visible and hidden states.
+The reveal keeps the HWND at its final on-screen position. `SlidePreview` prepares one opaque layered image at the start of a transition and exposes a region from the right edge while the live form is hidden. Reversals reuse that image instead of repainting child controls. Once motion settles, the preview is disposed and live controls return if the target is visible.
+
+`PanelMotion` advances an analytic critically damped spring (`Omega = 48`) using elapsed time. Repeated toggles change only the target, preserving continuous position and velocity. Convergence is typically about 200ms, but depends on the current state and delivered frames; there is no universal exact duration or FPS guarantee. `CompositionClock` waits on `DwmFlush` off the UI thread and posts at most one queued frame callback. Turning off “Плавное открытие панели” switches directly between visible and hidden states.
 
 ## Elevation & Depth
 
@@ -276,7 +280,7 @@ Header and navigation icons are drawn geometry. The action-icon stroke is 1.8px 
 
 ### Buttons
 
-Flat rectangular actions carry clear labels and visible native focus cues. Apply uses `button-primary`; Save uses the taller, bold `button-save`. Secondary actions use charcoal with cream text. Hover and pressed fills are defined in the frontmatter. Disabled buttons remain visibly subdued.
+Flat rectangular actions carry clear labels and visible native focus cues. Apply uses `button-primary`; Save uses the taller, bold `button-save`. Secondary actions use charcoal with cream text. Hover and pressed fills are defined in the frontmatter. Disabled buttons remain visibly subdued. Their native painter fills only the control rectangle with `FillRectangle`, rather than clearing the drawing surface.
 
 The record button becomes red only when the engine reports recording; its label includes elapsed time. It has a dedicated red hover fill and retains the shared secondary pressed fill. Replay and ordinary recording remain separate controls. Save is disabled unless the engine is ready, replay is running and the application is not busy.
 
@@ -290,7 +294,7 @@ The folder path is a borderless native text field beside a browse button. Shortc
 
 **EvaSlider** draws its rail and thumb. Click or drag sets a value; arrows move one step and Home/End select the limits. It exposes the native Slider accessibility role and current value. Focus is drawn inside the control. Numeric labels include the relevant unit.
 
-**EvaToggle** retains CheckBox semantics while drawing the label, pill track and thumb. Cobalt with a white thumb means checked; charcoal with a cream thumb means unchecked. Text remains part of the click target. Focus uses a visible inset rectangle.
+**EvaToggle** retains CheckBox semantics while drawing the label, pill track and thumb. Cobalt with a white thumb means checked; charcoal with a cream thumb means unchecked. Text remains part of the click target. Focus uses a visible inset rectangle. Its background is opaque EVA Ink (`BackColor`, `UseVisualStyleBackColor = false`). Each repaint fills only its clipped control bounds; `TextRenderer` preserves graphics clipping and translation, so labels do not inherit a stale parent tile or escape the control during a translated paint.
 
 **The Wheel Safety Rule.** The wheel scrolls the settings body without changing a value, even over a selector popup or slider. Changing a parameter requires an explicit click, drag or keyboard action.
 
